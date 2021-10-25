@@ -1,0 +1,21 @@
+{
+  "articles": [
+    {
+      "path": "help.html",
+      "title": "BitStat 도움말 작성하기",
+      "description": "BitStat에서 도움말을 작성하는 방법을 숙지합니다.",
+      "author": [],
+      "contents": "\nBitStat 도움말 매커니즘\nBitStat 도움말 매커니즘은, 미리 만들어 놓은 정적 HTML 파일을 Shiny 앱에 넣는 방법을 사용합니다. 그래서 우리는 이미 앞의 R Markdown 핸즈온에서 웹 문서를 생성하는 방법을 익혔습니다.\nBitStat 패키지의 구조\nBitStat 패키지의 구조는 다음과 같습니다. Shiny 앱을 패키지로 빌드할 경우에는 ./inst 디렉토리 내에 앱을 위치시킵니다.\nBitStat 패키지의 구조./inst 디렉토리 아래의 디렉토리 용도는 다음과 같습니다.\napp : Shiny 앱 디렉토리\nhelp : 도움말 경로\nimg : 도움말 삽입 이미지 경로\n\nmenu : 메뉴별 UI/Server 로직 경로\ntools : UI/Server를 지원하는 함수 경로\nwww : 웹 관련 경로 (Reserved, Not used)\nimg : 웹 이미지 경로\nmeta : 웹 메타 경로\n\n\ntranslation : 메뉴/메시지 i18n 지원 메타 파일 경로\nBitStat 패키지의 도움말 상세 구조\n도움말의 구조를 살펴 보기 위해서 파일 레벨까지 구조를 확장해 보겠습니다. app 디렉토리 이하의 경로에 생성된 파일입니다. (2021-10-26 기준)\nBitStat 패키지의 app 디렉토리 이하 구조여기서 도움말과 관련된 경로는 help와 menu 디렉토리입니다. help 디렉토리에는 도움말 파일이 위치해 있습니다. 그리고 menu 디렉토리는 도움말 파일을 핸들링하는 help_ui.R 파일이 위치합니다.\n도움말 파일\n도움말 파일은 R Markdown으로 만듭니다. 파일은 inst > app > help 경로에 보관하고 HTML 파일로 빌드합니다.\n다국어 지원 (i18n)\n현재 BitStat는 한글과 영문 도움말을 지원합니다. 그리고 이들은 파일 이름의 접미어(postfix)로 구분합니다.\n한글 도움말 파일\n*_kr.Rmd : 한글 도움말 생성을 위한 R Markdown 문서 이름\n사례 : data_diagnose_kr.Rmd\n\n*_kr.html : 한글 도움말 파일 이름\n사례 : data_diagnose_kr.html\n\n\n영문 도움말 파일\n*_en.Rmd : 영문 도움말 생성을 위한 R Markdown 문서 이름\n사례 : data_diagnose_en.Rmd\n\n*_en.html : 영문 도움말 파일 이름\n사례 : data_diagnose_en.html\n\n\n도움말 파일 만들기\n도움말을 위한 R Markdown 파일을 만든 후, 해당 경로에 HTML 파일을 빌드합니다.\n다음은 도움말을 작성하기 위한 R Markdown 파일의 예시입니다.\n도움말 작성 R Markdown 파일\n\n\n",
+      "last_modified": "2021-10-26T08:15:48+09:00"
+    },
+    {
+      "path": "index.html",
+      "title": "BitStat 도움말",
+      "description": "오픈 통계 패키지인 **BitStat**는 통계용어를 한글로 최적 번역하였으며, 다국어를 지원하기 때문에 영문 메뉴와 메시지도 지원하고 모든 기능에 대해서 한글과 영문 도움말을 제공합니다. \n",
+      "author": [],
+      "contents": "\n다국어 지원 (i18n)\nBitStat은 메뉴와 메시지 등 UI 레벨에서 한글과 영문을 지원합니다.\n한글 지원 BitStat영문 지원 BitStat도움말 기능\nBitStat은 제공하는 모든 기능에 대해서 도움말을 제공하고 있습니다. 도움말도 다국어를 지원하기 때문에 사용자의 환경에 따라서 한글과 영문으로 제공합니다.\nBitStat의 도움말 화면\n\n\n",
+      "last_modified": "2021-10-25T21:59:54+09:00"
+    }
+  ],
+  "collections": []
+}

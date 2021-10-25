@@ -1,0 +1,25 @@
+---
+title: "BitStat 도움말"
+description: |
+  오픈 통계 패키지인 **BitStat**는 통계용어를 한글로 최적 번역하였으며, 다국어를 지원하기 때문에 영문 메뉴와 메시지도 지원하고 모든 기능에 대해서 한글과 영문 도움말을 제공합니다. 
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 다국어 지원 (i18n)
+
+BitStat은 메뉴와 메시지 등 UI 레벨에서 한글과 영문을 지원합니다. 
+
+![한글 지원 BitStat](img/bitstat_kor.jpg)
+
+![영문 지원 BitStat](img/bitstat_eng.jpg)
+
+## 도움말 기능
+
+BitStat은 제공하는 모든 기능에 대해서 도움말을 제공하고 있습니다.
+도움말도 다국어를 지원하기 때문에 사용자의 환경에 따라서 한글과 영문으로 제공합니다.
+
+![BitStat의 도움말 화면](img/help.png)
