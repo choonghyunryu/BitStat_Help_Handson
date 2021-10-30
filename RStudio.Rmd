@@ -1,0 +1,11 @@
+---
+title: "R markdwon의 이해"
+description: |
+  RStudio에서 R 마크다운 문서를 활용하는 방법을 익힙니다.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+

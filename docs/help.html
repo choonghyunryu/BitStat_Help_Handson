@@ -2237,6 +2237,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     font-weight: bold;
   }
 
+  d-byline h3 {
+    font-size: 0.6rem !important;   
+    font-weight: 400 !important;   
+    color: rgba(0, 0, 0, 0.5) !important;   
+    margin: 0 !important;   
+  }
+      
+  d-byline {
+    contain: content;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.8rem;
+    line-height: 1.8em;
+    padding: 1.5rem 0;
+    min-height: 1.8em;
+  } 
+
   .bg-blue,
   .bg-orange,
   .bg-grey {
@@ -2446,6 +2463,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="nav-right">
 <a href="index.html">개요</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+R markdown hands-on
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="rmarkdown.html">R markdown의 이해</a>
+<a href="RStudio.html">RStudio에서 R markdown 사용하기</a>
+</div>
+</div>
 <a href="help.html">BitStat 도움말 작성하기</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>

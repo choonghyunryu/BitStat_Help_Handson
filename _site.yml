@@ -7,6 +7,12 @@ navbar:
   right:
     - text: "개요"
       href: index.html
+    - text: "R markdown hands-on"
+      menu:
+        - text: "R markdown의 이해"
+          href: rmarkdown.html     
+        - text: "RStudio에서 R markdown 사용하기"
+          href: RStudio.html          
     - text: "BitStat 도움말 작성하기"
       href: help.html
 output: 

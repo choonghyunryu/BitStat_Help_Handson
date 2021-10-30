@@ -126,6 +126,23 @@ h3 {
   font-weight: bold;
 }
 
+d-byline h3 {
+  font-size: 0.6rem !important;   
+  font-weight: 400 !important;   
+  color: rgba(0, 0, 0, 0.5) !important;   
+  margin: 0 !important;   
+}
+    
+d-byline {
+  contain: content;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.8rem;
+  line-height: 1.8em;
+  padding: 1.5rem 0;
+  min-height: 1.8em;
+} 
+
 .bg-blue,
 .bg-orange,
 .bg-grey {
