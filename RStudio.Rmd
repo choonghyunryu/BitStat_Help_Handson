@@ -75,7 +75,7 @@ R 마크다운 문서를 생성하는 방법을 학습합니다. 지시에 따�
 
 
 ```{r, sol-1, echo=FALSE}
-div(class = "bg-orange", 
+div(class = "bg-blue", 
     h4(icon("lightbulb", style = "margin-right: 5px;"), 
        "솔루션", style = "margin-bottom: 10px; margin-top: 0px;"), 
     "New R Markdown 다이얼로그를 여는 방법은 두가지입니다. 튜토리얼에서 제시하는 메뉴 아이콘 선택 방법과 \"File > New File > Markdown File\" 메뉴를 이용하는 방법입니다. 메뉴 아이콘 이용 방법이 간결하고 쉽습니다.")

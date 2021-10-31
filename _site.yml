@@ -9,12 +9,21 @@ navbar:
       href: index.html
     - text: "BitStat 도움말 작성하기"
       href: help.html  
-    - text: "R markdown의 이해"
+    - text: "R Markdown의 이해"
       href: rmarkdown.html
-    - text: "R markdown hands-on"
+    - text: "R Markdown hands-on"
       menu:
         - text: "첫 R 마크다운 문서 만들기"
-          href: RStudio.html  
+          href: RStudio.html
+        - text: "청크 옵션 이해하기"
+          href: chunk_knitr.html
+        - text: "YAML 이해하기"
+          href: rmarkdown_yaml.html
+        - text: "마크다운 태그 이해하기"
+          href: understand_markdown.html
+        - text: "---"          
+        - text: "BitStat 도움말 추가하기"
+          href: create_help.html             
         - text: "---"
         - text: "Cheatsheets"
           href: cheatsheets.html          
