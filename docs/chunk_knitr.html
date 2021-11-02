@@ -2136,6 +2136,39 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     --custom-lightorange: rgb(255, 204, 170); 
   }
 
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 400;
+   src: url(NanumSquare/NanumSquareR.eot);
+   src: url(NanumSquare/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareR.woff) format('woff'),
+        url(NanumSquare/NanumSquareR.ttf) format('truetype');
+  }
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 700;
+   src: url(NanumSquare/NanumSquareB.eot);
+   src: url(NanumSquare/NanumSquareB.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareB.woff) format('woff'),
+        url(NanumSquare/NanumSquareB.ttf) format('truetype');
+  }
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 800;
+   src: url(NanumSquare/NanumSquareEB.eot);
+   src: url(NanumSquare/NanumSquareEB.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareEB.woff) format('woff'),
+        url(NanumSquare/NanumSquareEB.ttf) format('truetype');
+  }
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 300;
+   src: url(NanumSquare/NanumSquareL.eot);
+   src: url(NanumSquare/NanumSquareL.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareL.woff) format('woff'),
+        url(NanumSquare/NanumSquareL.ttf) format('truetype');
+  }
+
   html {
     /*-- Main font sizes --*/
     --title-size:      50px;
@@ -2279,7 +2312,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   .bg-grey > *:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
-  }</style>
+  }
+
+  .panelset {
+    --panel-tab-foreground: currentColor !important;
+    --panel-tab-active-foreground: var(--custom-blue) !important;
+    --panel-tab-active-background: var(--custom-lightblue) !important;  
+    --panel-tab-hover-foreground: var(--custom-blue) !important;
+    --panel-tabs-border-bottom: #ddd !important;
+    --panel-tab-inactive-opacity: 0.5 !important;
+  }
+
+  .panel {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  </style>
   <style type="text/css">
   /* base style */
 
@@ -2514,22 +2562,29 @@ R Markdown hands-on
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#on-going">On-Going</a>
-<ul>
+<li><a href="#작업중입니다.">작업중입니다.</a></li>
 <li><a href="#r-마크다운-문서의-이해">R 마크다운 문서의 이해</a>
 <ul>
 <li><a href="#r-마크다운-문서의-분해">R 마크다운 문서의 분해</a></li>
 <li><a href="#튜토리얼의-범위">튜토리얼의 범위</a></li>
 </ul></li>
-<li><a href="#knitr의-r-코드-청크-옵션">knitr의 R 코드 청크 옵션</a>
+<li><a href="#knitr의-r-코드-청크">knitr의 R 코드 청크</a>
 <ul>
-<li><a href="#knitr의-r-코드-청크-옵션-목록">knitr의 R 코드 청크 옵션 목록</a></li>
+<li><a href="#청크의-구조-이해하기">청크의 구조 이해하기</a></li>
+<li><a href="#knitr의-r-코드-청크-옵션">knitr의 R 코드 청크 옵션</a></li>
+</ul></li>
+<li><a href="#핸즈온-준비하기">핸즈온 준비하기</a>
+<ul>
+<li><a href="#핸즈온-파일-다운로드하기">핸즈온 파일 다운로드하기</a></li>
+</ul></li>
+<li><a href="#핸즈온">핸즈온</a>
+<ul>
+<li><a href="#r-코드-출력-제어하기">1. R 코드 출력 제어하기</a></li>
 </ul></li>
 <li><a href="#요약">요약</a>
 <ul>
 <li><a href="#핸즈온-요약">핸즈온 요약</a></li>
 <li><a href="#i-can-do-it">I can do it</a></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -2545,7 +2600,7 @@ RStudio의 R 마크다운은 기본적으로 knitr 코드 청크를 사용합니
 청크 옵션을 아는만큼 문서의 품질이 향상됩니다. 대표적인 청크 옵션을 사용하는 방법을 익혀서 여러분의 문서에 날개를 달아주기 바랍니다.
 </div>
 </div>
-<h1 id="on-going">On-Going</h1>
+<h2 id="작업중입니다.">작업중입니다.</h2>
 <h2 id="r-마크다운-문서의-이해">R 마크다운 문서의 이해</h2>
 <h3 id="r-마크다운-문서의-분해">R 마크다운 문서의 분해</h3>
 <p>앞서 만들었던 첫 R 마크다운 문서를 분해하면 다음과 같습니다.</p>
@@ -2567,14 +2622,265 @@ RStudio의 R 마크다운은 기본적으로 knitr 코드 청크를 사용합니
 </ul></li>
 </ul>
 <h3 id="튜토리얼의-범위">튜토리얼의 범위</h3>
-<p>이 튜토리얼은 knitr의 R 코드 청크 옵션을 이해할 목적으로 진행합니다. 대표적인 청크 옵션을 이해하고, 다루지 않는 다른 옵션의 사용을 시도할 수 있는 자신감 함양을 유도합니다.</p>
-<h2 id="knitr의-r-코드-청크-옵션">knitr의 R 코드 청크 옵션</h2>
-<h3 id="knitr의-r-코드-청크-옵션-목록">knitr의 R 코드 청크 옵션 목록</h3>
+<p>이 튜토리얼은 R 마크다운 문서의 분해 중에서의 <strong>knitr의 R 코드 청크 옵션을 이해할 목적</strong>으로 진행합니다. 대표적인 청크 옵션을 이해하고, 다루지 않는 다른 옵션의 사용을 시도할 수 있는 자신감 함양을 유도합니다.</p>
+<h2 id="knitr의-r-코드-청크">knitr의 R 코드 청크</h2>
+<h3 id="청크의-구조-이해하기">청크의 구조 이해하기</h3>
+<p>우리는 지금 R 코드 청크를 다루고 있습니다. 그런데 knitr은 <strong>bash sehll</strong>(리눅스 쉘 스크립트), <strong>python</strong>(파이썬) 코드 청크 외에 몇개의 코드 청크를 지원합니다.</p>
+<p>예를 들어 R 마크다운에서 리눅스 쉘 스크립트 청크를 사용하려면 다음과 같이 기술합니다. 이것은 <strong>리눅스에서 날짜를 조회하는 명령어</strong>인 <strong><code>date</code></strong>를 수행한 후 그 결과를 마크다운 문서에 삽입합니다.</p>
+<div class="panelset">
+<section id="bash-코드청크" class="panel-name panel">
+<h4 class="panel-name">bash 코드청크</h4>
+<pre><code>```{bash}
+# 날짜와 일시 출력
+date
+
+# &#39;YYYY-MM-DD&#39; 포맷의 날짜 출력
+date +&#39;%Y-%m-%d&#39;
+```</code></pre>
+</section>
+<section id="수행결과" class="panel-name panel">
+<h4 class="panel-name">수행결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 날짜와 일시 출력</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;YYYY-MM-DD&#39; 포맷의 날짜 출력</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span> +<span class="st">&#39;%Y-%m-%d&#39;</span></span></code></pre></div>
+<pre><code>Tue Nov  2 12:19:04 KST 2021
+2021-11-02</code></pre>
+</div>
+</section>
+</div>
+<p>브레이스({) 뒤에 오는 ’bash’는 bash 쉘이 코드 청크를 실행하라는 의미입니다. 그러면, R에게 실행을 요청하기 위한 청크는 다음과 같이 사용합니다. 당연히 브레이스 뒤에 ’r’이 따라옵니다.</p>
+<div class="preface", style="padding-bottom: 0px;">
+<pre class="sourceCode r", style="font-family: 'NanumSquare'; font-size:12pt; color: red;">
+```{r 청크이름, 옵션이름=옵션값, 옵션이름=옵션값, ...}
+R 코드 삽입 영역
+```
+</pre></div>
+<p><br></p>
+<ul>
+<li>청크 이름은 청크를 식별하는 식별자입니다.
+<ul>
+<li>청크 이름을 기술하지 않아도 청크는 정상적으로 수행됩니다.</li>
+<li>R 마크다운 컴파일의 진행경과</li>
+<li>오류가 발생하는 청크의 인식 등을 위해 기술하는 것이 좋습니다.</li>
+</ul></li>
+<li>옵션이름 = 옵션값 형식으로 옵션을 기술합니다.
+<ul>
+<li>옵션을 기술하지 않아도 됩니다.</li>
+<li>이 경우에는 옵션의 기본 설정값이 적용됩니다.</li>
+</ul></li>
+</ul>
+<h3 id="knitr의-r-코드-청크-옵션">knitr의 R 코드 청크 옵션</h3>
 <p>knitr 홈페이지의 <a href="https://yihui.org/knitr/options/" target="_blank">https://yihui.org/knitr/options/</a> 페이지에는 청크 옵션에 대해서 잘 설명되어 있습니다.</p>
+<p>다음은 대표적인 청크 옵션의 목록입니다. 이 옵션들은 반드시 숙지하시기 바랍니다.</p>
+<h4 id="코드와-결과-출력-관련-청크-옵션">코드와 결과 출력 관련 청크 옵션</h4>
+<p>튜토리얼에서 익혀야 할 출력 관련 대표적인 청크 옵션입니다.</p>
+<table>
+<caption>R 코드와 결과 출력 관련 청크 옵션 목록</caption>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 14%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>옵션</th>
+<th>기본값</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>eval</td>
+<td>TRUE</td>
+<td>청크를 실행하고, 그 결과를 삽입하는 여부 설정</td>
+</tr>
+<tr class="even">
+<td>echo</td>
+<td>TRUE</td>
+<td>실행한 명령어도 함께 출력하는지의 여부 설정</td>
+</tr>
+<tr class="odd">
+<td>warning</td>
+<td>TRUE</td>
+<td>경고 메시지의 출력 여부 설정</td>
+</tr>
+<tr class="even">
+<td>error</td>
+<td>FALSE</td>
+<td>에러 메시지의 출력 여부 설정</td>
+</tr>
+<tr class="odd">
+<td>message</td>
+<td>TRUE</td>
+<td>경고, 에러 외의 메시지의 출력 여부 설정</td>
+</tr>
+<tr class="even">
+<td>tidy</td>
+<td>FALSE</td>
+<td>R 코드를 깔끔하게 정돈해서 출력할지의 여부 설정</td>
+</tr>
+<tr class="odd">
+<td>comment</td>
+<td>“##”</td>
+<td>실행 결과 출력 각 라인의 앞에 넣을 prefix</td>
+</tr>
+</tbody>
+</table>
+<h4 id="시각화-관련-청크-옵션">시각화 관련 청크 옵션</h4>
+<p>튜토리얼에서 익혀야 할 시각화 관련 대표적인 청크 옵션입니다.</p>
+<table>
+<caption>R 코드와 결과 시각화 관련 청크 옵션 목록</caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 13%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>옵션</th>
+<th>기본값</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fig.width</td>
+<td>7</td>
+<td>출력을 위해 생성할 이미지 파일의 너비, 단위: 인치.</td>
+</tr>
+<tr class="even">
+<td>fig.height</td>
+<td>7</td>
+<td>출력을 위해 생성할 이미지 파일의 높이, 단위: 인치.</td>
+</tr>
+<tr class="odd">
+<td>fig.align</td>
+<td>“default”</td>
+<td>플롯의 정렬 방법. <code>"left"</code>, <code>"right"</code>, <code>"center"</code>에서 선택</td>
+</tr>
+<tr class="even">
+<td>fig.path</td>
+<td>‘figure/’</td>
+<td>시각화 이미지 파일을 저장할 디렉토리 경로</td>
+</tr>
+<tr class="odd">
+<td>fig.cap</td>
+<td>NULL</td>
+<td>플롯의 캡션 문자 정의</td>
+</tr>
+<tr class="even">
+<td>out.width</td>
+<td></td>
+<td>시각화가 화면에 출력되는 너비, 예) “75%”, “300px”</td>
+</tr>
+</tbody>
+</table>
+<h2 id="핸즈온-준비하기">핸즈온 준비하기</h2>
+<h3 id="핸즈온-파일-다운로드하기">핸즈온 파일 다운로드하기</h3>
+<ul>
+<li>핸즈온 튜토리얼을 수행하기 위해서 아래 “청크 옵션 이해하기 튜토리얼 파일” 링크의 R 마크다운 파일을 다운로드합니다.
+<ul>
+<li>링크에 마우스를 올려, 오른쪽 버튼으로 “다른이름으로 파일저장”을 실행합니다.</li>
+</ul></li>
+<li>다운로드한 파일을 RStudio로 읽어들입니다.</li>
+</ul>
+<p><a href="tutorials/understand_chunk.Rmd" target="_blank">청크 옵션 이해하기 튜토리얼 파일</a></p>
+<h2 id="핸즈온">핸즈온</h2>
+<h3 id="r-코드-출력-제어하기">1. R 코드 출력 제어하기</h3>
+<h4 id="r-코드와-함께-결과-출력하기">1.1. R 코드와 함께 결과 출력하기</h4>
+<blockquote>
+<ol type="1">
+<li>다음 지문을 수행할, <strong>분석 경험을 위해 코드와 결과를 공유할 청크</strong>를 만들려고 합니다.
+<ul>
+<li>iris 데이터에서 중복인 데이터가 1건 있습니다. 추출하여 출력해 보세요.</li>
+<li>R 코드와 결과를 함께 출력해 보세요.</li>
+<li>청크 이름은 ’dup_iris’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 1-1. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>여러 방법이 있는데, 다음 코드를 사용해 보세요. <br></p>
+<pre><code>iris[duplicated(iris), ]</code></pre>
+</section>
+<section id="모범-답안" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r dup_iris}
+iris[duplicated(iris), ]
+```</code></pre>
+</section>
+<section id="실행-결과" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>iris</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/duplicated.html'>duplicated</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span>, <span class='op'>]</span>
+</code></pre>
+</div>
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+143          5.8         2.7          5.1         1.9 virginica</code></pre>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="결과만-출력하기">1.2. 결과만 출력하기</h4>
+<blockquote>
+<ol type="1">
+<li>다음 지문을 수행할, <strong>분석 결과만 공유할 청크</strong>를 만들려고 합니다.
+<ul>
+<li>summary() 함수로 iris 데이터의 각 변수들을 요약해 보세요.</li>
+<li>결과만 출력해 보세요.</li>
+<li>청크 이름은 ’dup_iris_result’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 1-2. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-1" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>다음 코드를 사용해 보세요. <br></p>
+<pre><code>summary(iris)</code></pre>
+</section>
+<section id="모범-답안-1" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r dup_iris_result, echo=FALSE}
+which[duplicated(iris)]
+```</code></pre>
+</section>
+<section id="실행-결과-1" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+                
+                
+                </code></pre>
+</div>
+</section>
+</div>
 <h2 id="요약">요약</h2>
 <h3 id="핸즈온-요약">핸즈온 요약</h3>
 <h3 id="i-can-do-it">I can do it</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

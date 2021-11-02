@@ -266,6 +266,7 @@ knitr는 R 마크다운 파일의 R 코드 청크를 실행해서 그 결과를 
 
 knitr의 R 코드 청크는 다음의 포맷을 따릅니다.
 
+
 <div class="sourceCode" id="cb1"><pre class="sourceCode r">
 <span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1">```{r, knitr 옵션 영역}</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>R 코드 삽입 영역</span>
