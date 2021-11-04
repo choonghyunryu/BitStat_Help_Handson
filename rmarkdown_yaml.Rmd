@@ -11,7 +11,7 @@ author:
   - name: 유충현 
     url: https://choonghyunryu.github.io/
     affiliation: 한화생명
-date: 2021-10-31     
+date: 2021-11-05     
 ---
 
 ```{r setup, include=FALSE}
@@ -35,11 +35,52 @@ knitr::include_graphics("img/rmarkdown.png")
 ```{r, preface, echo=FALSE}
 div(class = "preface", 
     h4("들어가기"),
-    "ooooooooooooooooooooooooooooooooooo.", br(),
-    "ooooooooooooooooooooooooooooooooooo.")
+    "문서 파일의 형식을 바꾸거나 전체 페이지의 테마를 바꾸고 싶다구요?!", br(),
+    "YAML로 문서 형식을 바꾸고 테마를 변경해 보세요. 그리고 덤으로 R 코드 실행을 위한 파라미터 값 설정으로 같은 포맷 다른 결과의 문서를 만들 수 있습니다.")
 ```
 
-# Not Yet
+
+## R 마크다운 문서의 이해
+### R 마크다운 문서의 분해
+
+앞서 만들었던 첫 R 마크다운 문서를 분해하면 다음과 같습니다.
+
+![R 마크다운 문서의 분해](img/decompose_rmarkdown.png){width=90% height=100%}
+
+* **YAML 헤더**
+    + **R 마크다운의 헤더 영역으로, 출력 문서를 세부적으로 제어합니다.**
+* R 코드 청크
+    + 수행할 R 코드를 포함한 영역입니다.
+* 마크다운 태그를 포함한 텍스트
+    + 문서의 서식과 텍스트를 정의하는 영역입니다.
+
+### 튜토리얼의 범위
+
+이 튜토리얼은 R 마크다운 문서의 분해 중에서의 **YAML 헤더를 이해할 목적**으로 진행합니다. 동일한 R 마크다운 문서로 어떻게 이질적인 형식의 파일과 모양을 빚어낼 수 있는지를 경험해 보세요.   
+
+## YAML 헤더의 이해
+
+### YAML 헤더는 무엇인가요?
+
+YAML는 ’또 다른 마크업 언어(Yet Another Markup Language)’를 의미합니다. 복작하고 어렵게 생각하지 마시고 **생성할 문서 전체의 형식을 정의하는 헤더라고 이해**하면 됩니다. 
+
+헤더라는 의미는 R 마크다운 문서의 맨 앞에 위치한다는 것을 의미합니다. 그리고 YAML라는 것을 알려주기 위해서 청크는, "````---````"으로 시작해서 "````---````"로 끝납니다.
+
+### YAML 헤더 예제
+이미 우리는 YAML 헤더를 경험했습니다.
+
+````
+---
+title: "첫 R 마크다운"
+author: "홍길동"
+date: "10/31/2021"
+output: html_document
+---
+````
+YAML 헤더에서 `이름`과 `값`은 콜론(:)으로 구분합니다. 한 줄에 한 쌍의  `이름`과 `값`이 올 수 있습니다.
+
+title: "첫 R 마크다운"은 문서 제목(타이틀)이 "첫 R 마크다운"임을 의미합니다.
+그리고 output: html_document은 생성할 문서 파일이 HTML, 즉 웹 문서임을 rmarkdown 패키지에게 알려줍니다. 그러면 rmarkdown 패키지가 pandoc을 호출하서 웹 문서를 생성하게 됩니다.
 
 
 ## 요약 

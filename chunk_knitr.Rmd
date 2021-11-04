@@ -11,7 +11,7 @@ author:
   - name: 유충현 
     url: https://choonghyunryu.github.io/
     affiliation: 한화생명
-date: 2021-10-31     
+date: 2021-11-04     
 ---
 
 ```{r setup, include=FALSE}
@@ -38,7 +38,6 @@ div(class = "preface",
     "청크 옵션을 아는만큼 문서의 품질이 향상됩니다. 대표적인 청크 옵션을 사용하는 방법을 익혀서 여러분의 문서에 날개를 달아주기 바랍니다.")
 ```
 
-## 작업중입니다.
 
 ## R 마크다운 문서의 이해
 ### R 마크다운 문서의 분해
@@ -47,10 +46,10 @@ div(class = "preface",
 
 ![R 마크다운 문서의 분해](img/decompose_rmarkdown.png){width=90% height=100%}
 
-* YMAL 헤더
+* YAML 헤더
     + R 마크다운의 헤더 영역으로, 출력 문서를 세부적으로 제어합니다.
-* R 코드 청크
-    + 수행할 R 코드를 포함한 영역입니다.
+* **R 코드 청크**
+    + **수행할 R 코드를 포함한 영역입니다.**
 * 마크다운 태그를 포함한 텍스트
     + 문서의 서식과 텍스트를 정의하는 영역입니다.
 
