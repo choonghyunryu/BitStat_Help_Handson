@@ -2580,6 +2580,7 @@ R Markdown hands-on
 <li><a href="#핸즈온">핸즈온</a>
 <ul>
 <li><a href="#r-코드-출력-제어하기">1. R 코드 출력 제어하기</a></li>
+<li><a href="#플롯-출력하기">2. 플롯 출력하기</a></li>
 </ul></li>
 <li><a href="#요약">요약</a>
 <ul>
@@ -2646,8 +2647,8 @@ date +&#39;%Y-%m-%d&#39;
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;YYYY-MM-DD&#39; 포맷의 날짜 출력</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span> +<span class="st">&#39;%Y-%m-%d&#39;</span></span></code></pre></div>
-<pre><code>Tue Nov  2 12:19:04 KST 2021
-2021-11-02</code></pre>
+<pre><code>## Thu Nov  4 23:19:23 KST 2021
+## 2021-11-04</code></pre>
 </div>
 </section>
 </div>
@@ -2824,8 +2825,8 @@ iris[duplicated(iris), ]
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>iris</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/duplicated.html'>duplicated</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span>, <span class='op'>]</span>
 </code></pre>
 </div>
-<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
-143          5.8         2.7          5.1         1.9 virginica</code></pre>
+<pre><code>##     Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 143          5.8         2.7          5.1         1.9 virginica</code></pre>
 </div>
 </section>
 </div>
@@ -2854,33 +2855,418 @@ iris[duplicated(iris), ]
 <section id="모범-답안-1" class="panel-name panel">
 <h4 class="panel-name">모범 답안</h4>
 <pre><code>```{r dup_iris_result, echo=FALSE}
-which[duplicated(iris)]
+summary(iris)
 ```</code></pre>
 </section>
 <section id="실행-결과-1" class="panel-name panel">
 <h4 class="panel-name">실행 결과</h4>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
- Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
- 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
- Median :5.800   Median :3.000   Median :4.350   Median :1.300  
- Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
- 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
- Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
-       Species  
- setosa    :50  
- versicolor:50  
- virginica :50  
-                
-                
-                </code></pre>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
 </div>
 </section>
 </div>
+<p><br></p>
+<h4 id="소스-코드만-출력하기">1.3. 소스 코드만 출력하기</h4>
+<blockquote>
+<ol type="1">
+<li>소스만 설명하려 합니다. 즉, <strong>소스를 실행하지 않고, 출력만 해야 합니다.</strong>
+<ul>
+<li>summary() 함수로 iris 데이터의 각 변수들을 요약하는 소스를 출력하세요.</li>
+<li>청크 이름은 ’iris_not_run’으로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 1-3. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-2" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>다음 코드를 사용해 보세요. <br></p>
+<pre><code>summary(iris)</code></pre>
+</section>
+<section id="모범-답안-2" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r iris_not_run, echo=TRUE, eval=FALSE}
+summary(iris)
+```</code></pre>
+</section>
+<section id="실행-결과-2" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="경고-메시지-출력하기">1.4. 경고 메시지 출력하기</h4>
+<blockquote>
+<ol type="1">
+<li>다음을 수행해 보세요.
+<ul>
+<li>-2부터 2까지의 정수 5개의 로그 값을 계산해 보세요.</li>
+<li>청크 이름은 ’log_integer’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 1-4. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+<li>어떤 결과가 출력되었나요?
+<ul>
+<li>음수일 경우에 발생하는 경고 메시가 출력됨을 확인하세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-3" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>다음 코드를 사용해 보세요. <br></p>
+<pre><code>log(-3:3)</code></pre>
+</section>
+<section id="모범-답안-3" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r log_integer}
+log(-3:3)
+```</code></pre>
+</section>
+<section id="실행-결과-3" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>3</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>## Warning in log(-3:3): NaNs produced</code></pre>
+<pre><code>## [1]       NaN       NaN       NaN      -Inf 0.0000000 0.6931472
+## [7] 1.0986123</code></pre>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="경고-메시지-출력하지-않기">1.5. 경고 메시지 출력하지 않기</h4>
+<blockquote>
+<ol type="1">
+<li>다음을 수행할 때 경고 메시지가 출력되는 것을 이미 알고 있습니다.
+<ul>
+<li>-2부터 2까지의 정수 5개의 로그 값을 계산해 보세요.</li>
+<li>경고 메시지를 출력하고 싶지 않습니다.</li>
+<li>청크 이름은 ’no_warning’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 1-5. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-4" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>다음 코드를 사용해 보세요. <br></p>
+<pre><code>log(-3:3)</code></pre>
+</section>
+<section id="모범-답안-4" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r no_warning, warning=FALSE}
+log(-3:3)
+```</code></pre>
+</section>
+<section id="실행-결과-4" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>3</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>## [1]       NaN       NaN       NaN      -Inf 0.0000000 0.6931472
+## [7] 1.0986123</code></pre>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="커맨트-변경하기">1.6. 커맨트 변경하기</h4>
+<blockquote>
+<ol type="1">
+<li>앞의 튜토리얼 결과를 보면, 출련된 각 라인에 “##”가 앞에 출력되었습니다.
+<ul>
+<li>lm(Sepal.Width ~ Sepal.Length, data = iris)를 실행하세요.</li>
+<li>“##”가 보기 싫습니다. 차라리 출력되지 않았으면 좋겠습니다.</li>
+<li>청크 이름은 ’change_comment’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 1-6. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-5" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>comment 옵션을 사용합니다.</p>
+</section>
+<section id="모범-답안-5" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r change_comment, comment=&quot;&quot;}
+lm(Sepal.Width ~ Sepal.Length, data = iris)
+```</code></pre>
+</section>
+<section id="실행-결과-5" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Sepal.Width</span> <span class='op'>~</span> <span class='va'>Sepal.Length</span>, data <span class='op'>=</span> <span class='va'>iris</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = Sepal.Width ~ Sepal.Length, data = iris)
+
+Coefficients:
+ (Intercept)  Sepal.Length  
+     3.41895      -0.06188  </code></pre>
+</div>
+</section>
+</div>
+<p><br></p>
+<h3 id="플롯-출력하기">2. 플롯 출력하기</h3>
+<h4 id="r-코드와-함께-플롯-출력하기">2.1. R 코드와 함께 플롯 출력하기</h4>
+<blockquote>
+<ol type="1">
+<li>다음 지문을 수행할, <strong>분석 경험을 위해 코드와 결과를 공유할 청크</strong>를 만들려고 합니다.
+<ul>
+<li>iris 데이터에서 Sepal.Width ~ Sepal.Length 관계를 산점도로 시각화 하세요.
+<ul>
+<li>Species별로 도형의 모양과 색상을 달리 그리세요.</li>
+<li>loess 산점도 위에 추세선도 출력하세요..</li>
+</ul></li>
+<li>R 코드와 결과를 함께 출력해 보세요.</li>
+<li>청크 이름은 ’scatter’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 2-1. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-6" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>여러 방법이 있는데, 다음 코드를 사용해 보세요.</p>
+<p><br></p>
+<pre><code>library(ggplot2)
+
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, 
+                        color = Species, shape = Species)) +
+  geom_point() +
+  geom_smooth()</code></pre>
+</section>
+<section id="모범-답안-6" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r scatter}
+library(ggplot2)
+
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, 
+                        color = Species, shape = Species)) +
+  geom_point() +
+  geom_smooth()
+```</code></pre>
+</section>
+<section id="실행-결과-6" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>iris</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Sepal.Length</span>, y <span class='op'>=</span> <span class='va'>Sepal.Width</span>, 
+                        color <span class='op'>=</span> <span class='va'>Species</span>, shape <span class='op'>=</span> <span class='va'>Species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="chunk_knitr_files/figure-html5/scatter-1.png" width="624" style="display: block; margin: auto auto auto 0;" /></p>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="플롯만-출력하기">2.2. 플롯만 출력하기</h4>
+<blockquote>
+<ol type="1">
+<li>2.1. 결과에서 R 소스와 메시지의 출력 없이 플롯만 출력하려 합니다.
+<ul>
+<li>청크 이름은 ’plot_only’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 2-2. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-7" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>여러 방법이 있는데, 다음 코드를 사용해 보세요.</p>
+<p><br></p>
+<pre><code>ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, 
+                        color = Species, shape = Species)) +
+  geom_point() +
+  geom_smooth()</code></pre>
+</section>
+<section id="모범-답안-7" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r plot_only, echo=FALSE, message=FALSE}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, 
+                        color = Species, shape = Species)) +
+  geom_point() +
+  geom_smooth()
+```</code></pre>
+</section>
+<section id="실행-결과-7" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="chunk_knitr_files/figure-html5/plot_only-1.png" width="624" style="display: block; margin: auto auto auto 0;" /></p>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="플롯-정렬하기">2.3. 플롯 정렬하기</h4>
+<blockquote>
+<ol type="1">
+<li>2.2. 결과에서 플롯을 화면의 가운데 정렬로 출력하려 합니다.
+<ul>
+<li>청크 이름은 ’plot_center’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 2-3. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-8" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>fig.align 인수를 사용합니다.</p>
+</section>
+<section id="모범-답안-8" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r plot_center, echo=FALSE, message=FALSE, fig.align=&quot;center&quot;}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, 
+                        color = Species, shape = Species)) +
+  geom_point() +
+  geom_smooth()
+```</code></pre>
+</section>
+<section id="실행-결과-8" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="chunk_knitr_files/figure-html5/plot_center-1.png" width="624" style="display: block; margin: auto;" /></p>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="플롯-화면출력-크기-조절하기">2.4. 플롯 화면출력 크기 조절하기</h4>
+<blockquote>
+<ol type="1">
+<li>2.3. 결과에서 플롯을 화면의 영역의 1/2 사이즈로 출력하려 합니다.
+<ul>
+<li>청크 이름은 ’plot_half_width’로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 2-4. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-9" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>out.width 인수를 사용합니다.</p>
+</section>
+<section id="모범-답안-9" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r plot_half_width, echo=FALSE, message=FALSE, fig.align=&quot;center&quot;, out.width=&quot;50%&quot;}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, 
+                        color = Species, shape = Species)) +
+  geom_point() +
+  geom_smooth()
+```</code></pre>
+</section>
+<section id="실행-결과-9" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="chunk_knitr_files/figure-html5/plot_half_width-1.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+</section>
+</div>
+<p><br></p>
+<h4 id="플롯-출력에-캡션-넣기">2.5. 플롯 출력에 캡션 넣기</h4>
+<blockquote>
+<ol type="1">
+<li>2.3. 결과에 캡션을 출력하려 합니다.
+<ul>
+<li>“iris 품종별 산점도”라는 캡션을 추가합니다.</li>
+<li>청크 이름은 ’plot_caption’으로 정의합니다.</li>
+</ul></li>
+<li>’understand_chunk.Rmd’의 2-5. 빈 영역을 채우고 실행해 봅니다.
+<ul>
+<li>모범 답안을 보지 않고 만들어 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-10" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>fig.cap 인수를 사용합니다.</p>
+</section>
+<section id="모범-답안-10" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>```{r plot_caption, echo=FALSE, message=FALSE, fig.align=&quot;center&quot;, fig.cap=&quot;iris 품종별 산점도&quot;}
+ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width, 
+                        color = Species, shape = Species)) +
+  geom_point() +
+  geom_smooth()
+```</code></pre>
+</section>
+<section id="실행-결과-10" class="panel-name panel">
+<h4 class="panel-name">실행 결과</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center">
+<img src="chunk_knitr_files/figure-html5/plot_caption-1.png" alt="iris 품종별 산점도" width="624" />
+<p class="caption">
+(#fig:plot_caption)iris 품종별 산점도
+</p>
+</div>
+</div>
+</section>
+</div>
+<p><br></p>
 <h2 id="요약">요약</h2>
 <h3 id="핸즈온-요약">핸즈온 요약</h3>
+<ul>
+<li>knitr 청크의 종류별로 다양한 출력 포맷의 문서를 작성했습니다.</li>
+<li>knitr 시각화 컨트롤 청크를 이용해서 플롯을 다양하게 출력했습니다.</li>
+</ul>
 <h3 id="i-can-do-it">I can do it</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<ul>
+<li>knitr의 대표적인 청크 옵션을 숙지해서, 화면에 분석 결과와 플롯 출력의 모양을 원하는대로 조정할 수 있습니다.</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

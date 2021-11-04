@@ -150,7 +150,7 @@ RStduio는 knitr을 이용해서 R 마크다운 문서를 마크다운 문서로
 
 * 제목과 저장 이름이 출력된 위치와 크기를 확인하세요.
 * R 코드 청그 위치에 어떤 내용이 표시되어 있습니까?
-* http://rmarkdown.rstuio.com을 눌러보세요.
+    + HTML 본문의 <https://rmarkdown.rstudio.com>{target="_blank"}을 눌러보세요.
 
 ![브라우저에 출력된 HTML 문서](img/web_first.png){width=100% height=100%}
 
