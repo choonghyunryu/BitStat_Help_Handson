@@ -2,8 +2,7 @@
 title: "첫 R 마크다운"
 author: "홍길동"
 date: "10/31/2021"
-output:
-  html_document: default
+output: html_document
 ---
 
 ```{r setup, include=FALSE}

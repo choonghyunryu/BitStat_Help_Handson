@@ -2575,7 +2575,13 @@ R Markdown hands-on
 <li><a href="#문서파일-형식-변경">문서파일 형식 변경</a>
 <ul>
 <li><a href="#핸즈온-파일-준비하기">핸즈온 파일 준비하기</a></li>
-<li><a href="#ms-워드파일-생성">MS 워드파일 생성</a></li>
+<li><a href="#ms-워드파일-생성하기">1. MS 워드파일 생성하기</a></li>
+<li><a href="#pdf-파일-생성하기">2. PDF 파일 생성하기</a></li>
+</ul></li>
+<li><a href="#문서-서식-변경">문서 서식 변경</a>
+<ul>
+<li><a href="#목차-넣기">목차 넣기</a></li>
+<li><a href="#목차에-순번-넣기">목차에 순번 넣기</a></li>
 </ul></li>
 <li><a href="#요약">요약</a>
 <ul>
@@ -2630,8 +2636,13 @@ author: &quot;홍길동&quot;
 date: &quot;10/31/2021&quot;
 output: html_document
 ---</code></pre>
-<p>YAML 헤더에서 <code>이름</code>과 <code>값</code>은 콜론(:)으로 구분합니다. 한 줄에 한 쌍의 <code>이름</code>과 <code>값</code>이 올 수 있습니다.</p>
+<p>YAML 헤더에서 <code>옵션 이름</code>과 <code>옵션 값</code>은 콜론(:)으로 구분합니다. 한 줄에 한 쌍의 <code>옵션 이름</code>과 <code>옵션 값</code>이 올 수 있습니다.</p>
 <p>title: “첫 R 마크다운”은 문서 제목(타이틀)이 “첫 R 마크다운”임을 의미합니다. 그리고 output: html_document은 생성할 문서 파일이 HTML, 즉 웹 문서임을 rmarkdown 패키지에게 알려줍니다. 그러면 rmarkdown 패키지가 pandoc을 호출하서 웹 문서를 생성하게 됩니다.</p>
+<p>어떤 옵션은 서브 옵션을 포함하기도 합니다. 대표적인 것이 <code>output</code> 옵션입니다. 서브 옵션은 옵션 다음 줄에 기술해야 하며, 들어쓰기를 하여 자식 옵션임을 알려 주는 것이 헤더를 이해하는데 용이한, 암묵적인 룰입니다.</p>
+<p>다음과 같이 기술하는 것을 권장합니다.</p>
+<pre><code>output:
+  html_document:
+    toc: true</code></pre>
 <h2 id="문서파일-형식-변경">문서파일 형식 변경</h2>
 <h3 id="핸즈온-파일-준비하기">핸즈온 파일 준비하기</h3>
 <p>“첫 R 마크다운 문서 만들기” 핸즈온에서 생성한 “first_rmarkdown.Rmd” 파일을 이용하여 핸즈온을 진행하려 합니다.</p>
@@ -2644,11 +2655,216 @@ output: html_document
 <li>다운로드한 파일을 RStudio로 읽어들입니다.</li>
 </ul>
 <p><a href="tutorials/first_rmarkdown.Rmd" target="_blank">YAML 이해하기 튜토리얼 파일</a></p>
-<h3 id="ms-워드파일-생성">MS 워드파일 생성</h3>
+<h3 id="ms-워드파일-생성하기">1. MS 워드파일 생성하기</h3>
+<h4 id="ms-워드파일-생성하는-yaml-편집하기">1. MS 워드파일 생성하는 YAML 편집하기</h4>
+<blockquote>
+<ol type="1">
+<li>first_rmarkdown.Rmd은 HTML 문서를 생성합니다.
+<ul>
+<li>YAML을 수정해서 MS 워드 파일을 생성하세요.</li>
+<li>’first_rmarkdown.Rmd’의 YAML을 변경 후 실행해 보세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<p>MS 워드파일을 생성하는 몇 가지의 방법이 있습니다.</p>
+<ol type="1">
+<li><code>새 파일 만들기</code> 아이콘 클릭 &gt; <code>New R Markdown</code> 다이얼로그에서
+<ul>
+<li>“Default Output Format:”의 Word 레디오 버튼 클릭하여 템플리트 생성/편집 후</li>
+<li><code>knit</code> 아이콘을 클릭하여 워드파일 생성</li>
+</ul></li>
+<li><code>knit</code> 아이콘을 마우스 오론쪽 클릭 후
+<ul>
+<li>“Knit to Word”를 선택하여 워드파일 생성<br />
+</li>
+</ul></li>
+<li>YAML 헤더를 수정하여 워드파일 생성
+<ul>
+<li>“output:”의 값을 수정 <br></li>
+</ul></li>
+</ol>
+<p>3번 방법을 사용하세요.</p>
+</section>
+<section id="모범-답안" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>---
+title: &quot;첫 R 마크다운&quot;
+author: &quot;홍길동&quot;
+date: &quot;10/31/2021&quot;
+output: word_document
+---</code></pre>
+</section>
+</div>
+<p><br></p>
+<p>생성한 워드파일은 다음과 같은 2페이지를 포함합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/word1.png" width="50%" style="display: block; margin: auto;" /><img src="img/word2.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<p><br></p>
+<h3 id="pdf-파일-생성하기">2. PDF 파일 생성하기</h3>
+<p>R 마크다운으로 PDF 파일을 생성할 때, knitr은 LaTeX을 만드는 것은 이미 앞에서 다루었습니다. 그런데 PDF 파일을 생성할 때, 한가지 이슈가 발생합니다. 한글이 포함된 R 마크다운 문서의 경우는 다음과 같은 오류가 발생합니다.</p>
+<pre><code>! Package inputenc Error: Unicode character 홍 (U+D64D)
+(inputenc)                not set up for use with LaTeX.
+</code></pre>
+<p>이것은 LaTeX이 한글을 처리하지 못해서 발생하는 LaTeX 에러입니다.</p>
+<p>한글을 처리하기 위해서는 LaTeX 패키지인 kotex을 사용해야 합니다. 그리고 YAML 헤더에서, LaTeX이 kotex을 사용하도록 설정해 주어야 합니다.</p>
+<h4 id="pdf-파일-생성하는-yaml-편집하기">2. PDF 파일 생성하는 YAML 편집하기</h4>
+<blockquote>
+<ol type="1">
+<li>first_rmarkdown.Rmd은 HTML 문서를 생성합니다.
+<ul>
+<li>YAML 헤더를 수정해서 PDF 파일을 생성하세요.</li>
+<li>’first_rmarkdown.Rmd’의 YAML을 변경 후 실행해 보세요.</li>
+<li>힌트를 참고해서 kotex을 사용하도록 설정하세요.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-1" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<ol type="1">
+<li>“output:” 옵션으로 “pdf_document:”을 사용하세요.</li>
+<li>“pdf_document:” 옵션의 서브옵션 “includes:”에 LaTeX 헤더 파일을 설정하세요.
+<ul>
+<li>LaTeX 헤더 파일은 “in_header:” 옵션으로 설정합니다.</li>
+<li>옵션 값에 “use_korean.tex” 파일을 기술하세요.</li>
+</ul></li>
+<li>YAML 헤더를 수정하여 워드파일 생성
+<ul>
+<li>“output:”의 값을 수정 <br></li>
+</ul></li>
+</ol>
+<p>“use_korean.tex” 파일은 다음의 내용을 담고 있습니다. 직접 파일을 만들거나, 아래 경로에서 다운로드 받을 수 있습니다.</p>
+<p><a href="tutorials/use_korean.tex%22" target="_blank">use_korean.tex 파일</a></p>
+<pre><code>\usepackage[hangul]{kotex}</code></pre>
+</section>
+<section id="모범-답안-1" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>---
+title: &quot;첫 R 마크다운&quot;
+author: &quot;홍길동&quot;
+date: &quot;10/31/2021&quot;
+output:
+  pdf_document:
+    includes:
+      in_header: use_korean.tex
+---</code></pre>
+</section>
+</div>
+<p><br></p>
+<p>생성한 PDF 파일은 다음과 같은 2페이지를 포함합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/pdf1.png" width="50%" style="display: block; margin: auto;" /><img src="img/pdf2.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<p><br></p>
+<h2 id="문서-서식-변경">문서 서식 변경</h2>
+<h3 id="목차-넣기">목차 넣기</h3>
+<p>하나의 파일에 여러 페이지 분량의 컨텐츠를 담을 수 있는 MS 워드나 PDF는 문서의 앞 부분에 목차(toc, Table of Contents)를 넣을 수 있습니다. 목차는 전체 문서의 구성을 이해하는 데 용이할 뿐아니라 링크를 통해서 해당 빠르게 이동할 수 있는 장점이 있습니다.</p>
+<h4 id="문서에-목차를-포함하는-yaml-편집하기">3. 문서에 목차를 포함하는 YAML 편집하기</h4>
+<p>먼저 아래 경로에서 “second_rmarkdown.Rmd” 파일을 다운로드 받으십시요.</p>
+<p><a href="tutorials/second_rmarkdown.Rmd%22" target="_blank">second_rmarkdown.Rmd 파일</a></p>
+<blockquote>
+<ol type="1">
+<li>second_rmarkdown.Rmd을 다운로드합니다.</li>
+<li>목차를 넣도록 옵션을 추가합니다.
+<ul>
+<li>toc 옵션을 사용합니다.</li>
+</ul></li>
+<li>목차는 4단계까지의 타이틀을 목차에 포함하십시요.
+<ul>
+<li>toc_depth 옵션을 사용합니다.</li>
+</ul></li>
+<li>목차에 넣을 타이틀 단계를 변경해가면서 타이틀의 모양을 비교해보십시요.</li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-2" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<ul>
+<li>toc 옵션의 값은 논리값을 사용하는데, 대소문자를 구별하지 않습니다.
+<ul>
+<li>true, True, TRUE, flase, False, FALSE로 표현이 가능합니다.</li>
+</ul></li>
+<li>본 튜토리얼의 모든 R 마크다운 문서는 가장 큰 타이들을 두번째 타이틀인 ##를 사용합니다.
+<ul>
+<li>첫번째 타이틀인 #의 타이틀 제목이 필요 이상으로 커서 두번째 타이틀인 ##를 기준으로 사용합니다.</li>
+<li>그러므로 ##의 depth는 2입니다.</li>
+</ul></li>
+</ul>
+</section>
+<section id="모범-답안-2" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>---
+title: &quot;두번째 R 마크다운&quot;
+author: &quot;홍길동&quot;
+date: &quot;10/31/2021&quot;
+output:
+  word_document:
+    toc: true
+    toc_depth: 4
+---</code></pre>
+</section>
+</div>
+<p><br></p>
+<p>생성한 워드 파일은 다음과 같이 목차를 포함합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/toc.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<p><br></p>
+<h3 id="목차에-순번-넣기">목차에 순번 넣기</h3>
+<p>목차에 순번을 넣을 수 있습니다.</p>
+<h4 id="문서에-순번이-있는-목차를-포함하는-yaml-편집하기">4. 문서에 순번이 있는 목차를 포함하는 YAML 편집하기</h4>
+<blockquote>
+<ol type="1">
+<li>second_rmarkdown.Rmd를 사용합니다.</li>
+<li>목차를 넣도록 옵션을 추가합니다.
+<ul>
+<li>toc 옵션을 사용합니다.</li>
+</ul></li>
+<li>목차는 3단계까지의 타이틀을 목차에 포함하십시요.
+<ul>
+<li>toc_depth 옵션을 사용합니다.</li>
+</ul></li>
+<li>타이틀과 목차에 순번을 넣으십시요.
+<ul>
+<li>number_sections 옵션을 사용합니다.</li>
+</ul></li>
+</ol>
+</blockquote>
+<div class="panelset">
+<section id="힌트-보기-3" class="panel-name panel">
+<h4 class="panel-name">힌트 보기</h4>
+<ul>
+<li>number_sections 옵션의 값은 논리값도 대소문자를 구별하지 않습니다.</li>
+</ul>
+</section>
+<section id="모범-답안-3" class="panel-name panel">
+<h4 class="panel-name">모범 답안</h4>
+<pre><code>---
+title: &quot;두번째 R 마크다운&quot;
+author: &quot;홍길동&quot;
+date: &quot;10/31/2021&quot;
+output:
+  word_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+---</code></pre>
+</section>
+</div>
+<p><br></p>
+<p>생성한 워드 파일은 다음과 같이 목차를 포함합니다.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="img/toc2.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<p><br></p>
 <h2 id="요약">요약</h2>
 <h3 id="핸즈온-요약">핸즈온 요약</h3>
 <h3 id="i-can-do-it">I can do it</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
