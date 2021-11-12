@@ -26,7 +26,10 @@ navbar:
           href: create_help.html             
         - text: "---"
         - text: "Cheatsheets"
-          href: cheatsheets.html          
+          href: cheatsheets.html
+        - text: "---"
+        - text: "Resources"        
+          href: rmarkdown_resources.html          
 output: 
   distill::distill_article:
     theme: theme.css
