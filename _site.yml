@@ -7,8 +7,6 @@ navbar:
   right:
     - text: "개요"
       href: index.html
-    - text: "BitStat 도움말 작성하기"
-      href: help.html  
     - text: "R Markdown의 이해"
       href: rmarkdown.html
     - text: "R Markdown hands-on"
@@ -21,15 +19,14 @@ navbar:
           href: rmarkdown_yaml.html
         - text: "마크다운 태그 이해하기"
           href: understand_markdown.html
-        - text: "---"          
-        - text: "BitStat 도움말 추가하기"
-          href: create_help.html             
         - text: "---"
         - text: "Cheatsheets"
           href: cheatsheets.html
         - text: "---"
         - text: "Resources"        
-          href: rmarkdown_resources.html          
+          href: rmarkdown_resources.html
+    - text: "BitStat 도움말 작성하기"
+      href: create_help.html
 output: 
   distill::distill_article:
     theme: theme.css
